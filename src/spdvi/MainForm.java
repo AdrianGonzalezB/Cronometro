@@ -39,6 +39,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cronometro");
+        setResizable(false);
 
         lblInfoCronometro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInfoCronometro.setText("00:00:00");
