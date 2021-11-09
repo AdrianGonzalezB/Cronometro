@@ -11,10 +11,10 @@ package spdvi;
  * @author Alumne
  */
 public class MainForm extends javax.swing.JFrame implements Runnable {
-    Thread hilo;
+    Thread cronometroHilo;
     boolean cronometroActivo;
-    boolean pausar;
-    boolean iniciado = true;
+    boolean cronometroPausado;
+    boolean cronometroIniciado = true;
     /**
      * Creates new form MainForm
      */
@@ -97,25 +97,23 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarCronometroActionPerformed
-        if (iniciado) {
-            hilo = new Thread(this);
+        if (cronometroIniciado) {
+            cronometroHilo = new Thread(this);
             cronometroActivo = true;
-            pausar = false;
-            hilo.start();
-            iniciado = false;
+            cronometroPausado = false;
+            cronometroHilo.start();
+            cronometroIniciado = false;
         }
     }//GEN-LAST:event_btnIniciarCronometroActionPerformed
 
     private void btnAturarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAturarCronometroActionPerformed
-        pausar = true ;
-        // Ajuste al codigo: cada vez que el cronometro sea detenido se habilita varaible iniciado para que se pueda crear una nueva instancia de hilo
-        iniciado = true;
+        cronometroPausado = true ;
+        cronometroIniciado = true;
     }//GEN-LAST:event_btnAturarCronometroActionPerformed
 
     private void btnReiniciarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarCronometroActionPerformed
         cronometroActivo = false;
-        iniciado = true;
-        // Ajuste al codigo: se adiciona esta linea para que deje el label en formato "00:00:00"
+        cronometroIniciado = true;
         lblCronometro.setText( "00:00:00" );
     }//GEN-LAST:event_btnReiniciarCronometroActionPerformed
 
@@ -125,7 +123,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
         String min="", seg="", mil="";
         try {
             while (cronometroActivo) {
-                if (!pausar) {
+                if (!cronometroPausado) {
                     Thread.sleep(4);
                     milesimas += 4;
                     if (milesimas == 1000){
