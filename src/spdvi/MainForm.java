@@ -31,15 +31,17 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCronometro = new javax.swing.JLabel();
+        lblInfoCronometro = new javax.swing.JLabel();
         btnIniciarCronometro = new javax.swing.JButton();
         btnAturarCronometro = new javax.swing.JButton();
         btnReiniciarCronometro = new javax.swing.JButton();
+        lblCronometro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cronometro");
 
-        lblCronometro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCronometro.setText("00:00:00");
+        lblInfoCronometro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInfoCronometro.setText("00:00:00");
 
         btnIniciarCronometro.setText("Inicia");
         btnIniciarCronometro.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +64,10 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        lblCronometro.setForeground(new java.awt.Color(204, 0, 51));
+        lblCronometro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCronometro.setText("Cronometro");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,14 +83,19 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
                         .addComponent(btnReiniciarCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addComponent(lblCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblInfoCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(lblCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(lblCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(lblCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblInfoCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIniciarCronometro)
@@ -114,7 +125,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     private void btnReiniciarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarCronometroActionPerformed
         cronometroActivo = false;
         cronometroIniciado = true;
-        lblCronometro.setText( "00:00:00" );
+        lblInfoCronometro.setText( "00:00:00" );
     }//GEN-LAST:event_btnReiniciarCronometroActionPerformed
 
     @Override
@@ -142,13 +153,11 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
                     if( milesimas < 10 ) mil = milesimas + "";
                     else if( milesimas < 10 ) mil =  milesimas + "";
                     else mil = milesimas.toString();
-
-                    //Colocamos en la etiqueta la informacion
-                    lblCronometro.setText( min + ":" + seg + ":" + mil );
+                    lblInfoCronometro.setText( min + ":" + seg + ":" + mil );
                 }
             }
-            lblCronometro.setText( min + ":" + seg + ":" + mil );
-        }catch (Exception ex) {
+            lblInfoCronometro.setText( min + ":" + seg + ":" + mil );
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -192,5 +201,6 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton btnIniciarCronometro;
     private javax.swing.JButton btnReiniciarCronometro;
     private javax.swing.JLabel lblCronometro;
+    private javax.swing.JLabel lblInfoCronometro;
     // End of variables declaration//GEN-END:variables
 }
