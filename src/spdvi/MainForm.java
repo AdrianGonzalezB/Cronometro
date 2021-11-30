@@ -18,7 +18,10 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     boolean cronometroPausado;
     boolean cronometroIniciado = true;
     /* Shortcuts: 
-       - Exit -> Ctrl + E*/
+       - Exit -> Ctrl + E
+       - Start -> Ctrl + I
+       - Pause -> Ctrl + A
+       - Restart -> Ctrl + R*/
     /**
      * Creates new form MainForm
      */
