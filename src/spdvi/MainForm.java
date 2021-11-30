@@ -43,9 +43,9 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
         mnuExit = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mnuInicia = new javax.swing.JMenuItem();
+        mnuAtura = new javax.swing.JMenuItem();
+        mnuReinicia = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cronometro");
@@ -98,17 +98,35 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
 
         jMenu2.setText("Edit");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Inicia");
-        jMenu2.add(jMenuItem1);
+        mnuInicia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuInicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Iniciar.jpg"))); // NOI18N
+        mnuInicia.setText("Inicia");
+        mnuInicia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuIniciaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuInicia);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Atura");
-        jMenu2.add(jMenuItem2);
+        mnuAtura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuAtura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_pause.png"))); // NOI18N
+        mnuAtura.setText("Atura");
+        mnuAtura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAturaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuAtura);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setText("Reinicia");
-        jMenu2.add(jMenuItem3);
+        mnuReinicia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuReinicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Reiniciar.png"))); // NOI18N
+        mnuReinicia.setText("Reinicia");
+        mnuReinicia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuReiniciaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuReinicia);
 
         jMenuBar1.add(jMenu2);
 
@@ -150,13 +168,51 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
                     .addComponent(btnAturarCronometro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReiniciarCronometro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnIniciarCronometro))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarCronometroActionPerformed
+        iniciarCrono();
+    }//GEN-LAST:event_btnIniciarCronometroActionPerformed
+
+    private void btnAturarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAturarCronometroActionPerformed
+        pausarCrono();
+    }//GEN-LAST:event_btnAturarCronometroActionPerformed
+
+    private void btnReiniciarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarCronometroActionPerformed
+        reiniciarCrono();
+    }//GEN-LAST:event_btnReiniciarCronometroActionPerformed
+
+    private void mnuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuExitActionPerformed
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_mnuExitActionPerformed
+
+    private void mnuIniciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIniciaActionPerformed
+        iniciarCrono();
+    }//GEN-LAST:event_mnuIniciaActionPerformed
+
+    private void mnuAturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAturaActionPerformed
+        pausarCrono();
+    }//GEN-LAST:event_mnuAturaActionPerformed
+
+    private void mnuReiniciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuReiniciaActionPerformed
+        reiniciarCrono();
+    }//GEN-LAST:event_mnuReiniciaActionPerformed
+
+    private void reiniciarCrono() {
+        cronometroActivo = false;
+        cronometroIniciado = true;
+        lblInfoCronometro.setText( "00:00:00" );
+    }
+    
+    private void pausarCrono() {
+        cronometroPausado = true ;
+        cronometroIniciado = true;
+    }
+    private void iniciarCrono() {
         if (cronometroIniciado) {
             cronometroHilo = new Thread(this);
             cronometroActivo = true;
@@ -164,23 +220,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
             cronometroHilo.start();
             cronometroIniciado = false;
         }
-    }//GEN-LAST:event_btnIniciarCronometroActionPerformed
-
-    private void btnAturarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAturarCronometroActionPerformed
-        cronometroPausado = true ;
-        cronometroIniciado = true;
-    }//GEN-LAST:event_btnAturarCronometroActionPerformed
-
-    private void btnReiniciarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarCronometroActionPerformed
-        cronometroActivo = false;
-        cronometroIniciado = true;
-        lblInfoCronometro.setText( "00:00:00" );
-    }//GEN-LAST:event_btnReiniciarCronometroActionPerformed
-
-    private void mnuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuExitActionPerformed
-        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-    }//GEN-LAST:event_mnuExitActionPerformed
-
+    }
     @Override
     public void run() {
         Integer horas = 0, minutos = 0, segundos = 0, milesimas = 0;
@@ -255,12 +295,12 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblCronometro;
     private javax.swing.JLabel lblInfoCronometro;
+    private javax.swing.JMenuItem mnuAtura;
     private javax.swing.JMenuItem mnuExit;
+    private javax.swing.JMenuItem mnuInicia;
+    private javax.swing.JMenuItem mnuReinicia;
     // End of variables declaration//GEN-END:variables
 }
