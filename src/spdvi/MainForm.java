@@ -46,6 +46,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
         mnuInicia = new javax.swing.JMenuItem();
         mnuAtura = new javax.swing.JMenuItem();
         mnuReinicia = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cronometro");
@@ -127,6 +128,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
             }
         });
         jMenu2.add(mnuReinicia);
+        jMenu2.add(jSeparator2);
 
         jMenuBar1.add(jMenu2);
 
@@ -297,6 +299,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JLabel lblCronometro;
     private javax.swing.JLabel lblInfoCronometro;
     private javax.swing.JMenuItem mnuAtura;
