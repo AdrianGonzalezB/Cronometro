@@ -186,6 +186,8 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
 
     private void btnReiniciarCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarCronometroActionPerformed
         reiniciarCrono();
+        
+
     }//GEN-LAST:event_btnReiniciarCronometroActionPerformed
 
     private void mnuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuExitActionPerformed
@@ -224,6 +226,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
             cronometroIniciado = false;
         }
     }
+    
     @Override
     public void run() {
         Integer horas = 0, minutos = 0, segundos = 0, milesimas = 0;
