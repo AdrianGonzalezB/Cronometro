@@ -212,6 +212,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
         cronometroPausado = true ;
         cronometroIniciado = true;
     }
+    
     private void iniciarCrono() {
         if (cronometroIniciado) {
             cronometroHilo = new Thread(this);
