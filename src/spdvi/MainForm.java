@@ -236,8 +236,8 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     
     @Override
     public void run() {
-        Integer horas = 0, minutos = 0, segundos = 0, milesimas = 0;
-        String  hour = "", min = "", seg = "", mil = "";
+        Integer horas = 0, minutos = 0, segundos = 0;
+        String  hour = "", min = "", seg = "";
         try {
             while (cronometroActivo) {
                 if (!cronometroPausado) {
