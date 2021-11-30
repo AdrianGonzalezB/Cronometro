@@ -98,7 +98,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Options");
 
         mnuInicia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuInicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon_Iniciar.jpg"))); // NOI18N
