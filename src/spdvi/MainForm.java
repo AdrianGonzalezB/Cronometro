@@ -17,6 +17,8 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
     boolean cronometroActivo;
     boolean cronometroPausado;
     boolean cronometroIniciado = true;
+    /* Shortcuts: 
+       - Exit -> Ctrl + E*/
     /**
      * Creates new form MainForm
      */
@@ -52,6 +54,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
         setTitle("Cronometro");
         setResizable(false);
 
+        lblInfoCronometro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblInfoCronometro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInfoCronometro.setText("00:00:00");
 
