@@ -55,7 +55,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
         setTitle("Cronometro");
         setResizable(false);
 
-        lblInfoCronometro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblInfoCronometro.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblInfoCronometro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInfoCronometro.setText("00:00:00");
 
@@ -142,7 +142,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -159,12 +159,12 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
                             .addComponent(btnAturarCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnReiniciarCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(22, 22, 22)
                 .addComponent(lblCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblInfoCronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +173,7 @@ public class MainForm extends javax.swing.JFrame implements Runnable {
                     .addComponent(btnAturarCronometro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReiniciarCronometro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnIniciarCronometro))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
